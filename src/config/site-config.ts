@@ -1,13 +1,8 @@
 export const siteConfig = {
   name: "KiwiScale",
   tagline: "Digital Marketing & IT Solutions",
-<<<<<<< Updated upstream
-  phone: "+64 21 000 0000",
-  email: "hello@digitaledge.co.nz",
-=======
   phone: "+64 22 417 8796",
   email: "hello.kiwiscale@gmail.com",
->>>>>>> Stashed changes
   address: "Auckland, New Zealand",
   website: "https://kiwiscale.com/",
 
