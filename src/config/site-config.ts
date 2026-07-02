@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "KiwiScale",
   tagline: "Digital Marketing & IT Solutions",
-  phone: "+64 21 000 0000",
+  phone: "+64 22 417 8796",
   email: "hello@digitaledge.co.nz",
   address: "Auckland, New Zealand",
   website: "https://digitaledge.co.nz",
