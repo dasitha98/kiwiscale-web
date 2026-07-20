@@ -337,14 +337,14 @@ export default function PortfolioPage() {
                 Immediately Available
               </span>
             </div>
-            <p className="mt-6 text-base md:text-lg text-white/75 leading-relaxed max-w-2xl">
+            {/* <p className="mt-6 text-base md:text-lg text-white/75 leading-relaxed max-w-2xl">
               Nearly 5 years building scalable applications across fintech,
               cryptocurrency, and business-management platforms, including
               hands-on New Zealand project experience through Whitireia and
               WelTec. I own the full SDLC, integrate secure authentication and
               payment systems, and apply Agile and AI-assisted development
               practices.
-            </p>
+            </p> */}
 
             <div className="mt-8 flex flex-wrap gap-3">
               <Button

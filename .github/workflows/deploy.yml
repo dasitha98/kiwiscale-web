@@ -20,17 +20,27 @@ jobs:
           script: |
             set -e
 
+            echo "Starting deployment..."
+
             cd /root/kiwiscale-web
 
+            echo "Fetching latest code..."
             git fetch origin
             git reset --hard origin/main
 
+            echo "Installing dependencies..."
             npm ci
 
+            echo "Removing previous build..."
             rm -rf .next
 
+            echo "Building application..."
             npm run build
 
+            echo "Restarting PM2..."
             pm2 restart kiwiscale-web
 
+            echo "Saving PM2 process list..."
             pm2 save
+
+            echo "Deployment completed successfully."
