@@ -18,12 +18,19 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
           script: |
+            set -e
+
             cd /root/kiwiscale-web
 
-            git pull origin main
+            git fetch origin
+            git reset --hard origin/main
 
-            npm install
+            npm ci
+
+            rm -rf .next
 
             npm run build
 
             pm2 restart kiwiscale-web
+
+            pm2 save
