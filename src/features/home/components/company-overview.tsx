@@ -41,7 +41,7 @@ const CompanyOverviewSection = () => (
           </div>
         </div>
 
-        <div>
+        {/* <div>
           <div className="overflow-hidden rounded-2xl border border-border shadow-lg">
             <div className="relative aspect-video w-full">
               <iframe
@@ -53,10 +53,10 @@ const CompanyOverviewSection = () => (
               />
             </div>
           </div>
-          {/* <p className="mt-4 text-center text-sm text-muted-foreground">
+          <p className="mt-4 text-center text-sm text-muted-foreground">
             {siteConfig.companyOverview.videoCaption}
-          </p> */}
-        </div>
+          </p>
+        </div> */}
       </div>
     </div>
   </section>
