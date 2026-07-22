@@ -18,6 +18,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { ChatWidget } from "@/features/chat";
 
 export const metadata: Metadata = {
   title: {
@@ -64,6 +65,7 @@ export default function RootLayout({
               {children}
               <Toaster />
               <Sonner />
+              <ChatWidget />
             </TooltipProvider>
           </QueryProvider>
         </ThemeProvider>
