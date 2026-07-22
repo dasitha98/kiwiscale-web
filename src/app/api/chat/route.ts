@@ -1,7 +1,6 @@
 import OpenAI from "openai";
 
-const SYSTEM_PROMPT =
-  "You are the KiwiScale website assistant. Answer questions about KiwiScale's digital marketing and IT services concisely and helpfully. If you don't know something, say so and suggest contacting the team via the contact form.";
+import { SYSTEM_PROMPT } from "@/features/chat/system-prompt";
 
 export async function POST(request: Request) {
   const { messages } = (await request.json()) as {
