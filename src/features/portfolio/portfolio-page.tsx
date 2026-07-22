@@ -404,14 +404,14 @@ export default function PortfolioPage() {
                 aria-hidden
               />
               <div className="relative rounded-[2rem] p-1.5 bg-gradient-to-br from-gold/60 via-white/10 to-white/5 backdrop-blur">
-                <Image
+                {/* <Image
                   src="/images/portfolio-dasitha.jpg"
                   alt={`${PROFILE.name}, Senior Software Engineer`}
                   width={340}
                   height={420}
                   className="w-64 md:w-80 h-80 md:h-[26rem] object-cover rounded-[1.75rem]"
                   priority
-                />
+                /> */}
               </div>
             </div>
           </div>
