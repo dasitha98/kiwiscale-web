@@ -31,6 +31,11 @@ jobs:
             echo "Installing dependencies..."
             npm ci
 
+            echo "Creating .env.local..."
+            cat > .env.local << EOF
+            OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
+            EOF
+
             echo "Removing previous build..."
             rm -rf .next
 
