@@ -256,14 +256,14 @@ export const siteConfig = {
   ],
 
   clientLogos: [
-    { name: "Kiwi Builders", image: "", link: "" },
-    { name: "NZ Fresh Foods", image: "", link: "" },
-    { name: "Pacific Legal", image: "", link: "" },
-    { name: "AKL Trades", image: "", link: "" },
-    { name: "Summit Property", image: "", link: "" },
-    { name: "Harbour Health", image: "", link: "" },
-    { name: "Coastline Media", image: "", link: "" },
-    { name: "Greenfield Co", image: "", link: "" },
+    { name: "SL Dating App", image: "", link: "" },
+    // { name: "NZ Fresh Foods", image: "", link: "" },
+    // { name: "Pacific Legal", image: "", link: "" },
+    // { name: "AKL Trades", image: "", link: "" },
+    // { name: "Summit Property", image: "", link: "" },
+    // { name: "Harbour Health", image: "", link: "" },
+    // { name: "Coastline Media", image: "", link: "" },
+    // { name: "Greenfield Co", image: "", link: "" },
   ],
 
   pitfalls: [
