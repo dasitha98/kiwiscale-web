@@ -40,7 +40,7 @@ jobs:
             rm -rf .next
 
             echo "Building application..."
-            npm run build
+            NODE_OPTIONS="--max-old-space-size=4096" npm run build
 
             echo "Restarting PM2..."
             pm2 restart kiwiscale-web

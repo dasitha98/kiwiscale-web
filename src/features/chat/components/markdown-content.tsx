@@ -3,14 +3,58 @@
 import { useState } from "react";
 import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import tsx from "react-syntax-highlighter/dist/esm/languages/prism/tsx";
+import typescript from "react-syntax-highlighter/dist/esm/languages/prism/typescript";
+import javascript from "react-syntax-highlighter/dist/esm/languages/prism/javascript";
+import jsx from "react-syntax-highlighter/dist/esm/languages/prism/jsx";
+import json from "react-syntax-highlighter/dist/esm/languages/prism/json";
+import bash from "react-syntax-highlighter/dist/esm/languages/prism/bash";
+import css from "react-syntax-highlighter/dist/esm/languages/prism/css";
+import markup from "react-syntax-highlighter/dist/esm/languages/prism/markup";
+import python from "react-syntax-highlighter/dist/esm/languages/prism/python";
+import sql from "react-syntax-highlighter/dist/esm/languages/prism/sql";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Check, Copy, ExternalLink } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
+SyntaxHighlighter.registerLanguage("tsx", tsx);
+SyntaxHighlighter.registerLanguage("typescript", typescript);
+SyntaxHighlighter.registerLanguage("ts", typescript);
+SyntaxHighlighter.registerLanguage("javascript", javascript);
+SyntaxHighlighter.registerLanguage("js", javascript);
+SyntaxHighlighter.registerLanguage("jsx", jsx);
+SyntaxHighlighter.registerLanguage("json", json);
+SyntaxHighlighter.registerLanguage("bash", bash);
+SyntaxHighlighter.registerLanguage("sh", bash);
+SyntaxHighlighter.registerLanguage("css", css);
+SyntaxHighlighter.registerLanguage("html", markup);
+SyntaxHighlighter.registerLanguage("markup", markup);
+SyntaxHighlighter.registerLanguage("python", python);
+SyntaxHighlighter.registerLanguage("sql", sql);
+
+const SUPPORTED_LANGUAGES = new Set([
+  "tsx",
+  "typescript",
+  "ts",
+  "javascript",
+  "js",
+  "jsx",
+  "json",
+  "bash",
+  "sh",
+  "css",
+  "html",
+  "markup",
+  "python",
+  "sql",
+]);
+
 function CodeBlock({ language, code }: { language: string; code: string }) {
   const [copied, setCopied] = useState(false);
+  const displayLanguage = language.toLowerCase();
+  const highlightLanguage = SUPPORTED_LANGUAGES.has(displayLanguage) ? displayLanguage : undefined;
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(code);
@@ -32,14 +76,18 @@ function CodeBlock({ language, code }: { language: string; code: string }) {
         </button>
       </div>
       <div className="overflow-x-auto">
-        <SyntaxHighlighter
-          language={language || "text"}
-          style={oneDark}
-          customStyle={{ margin: 0, padding: "0.75rem 1rem", background: "transparent", fontSize: "0.8125rem" }}
-          wrapLongLines
-        >
-          {code}
-        </SyntaxHighlighter>
+        {highlightLanguage ? (
+          <SyntaxHighlighter
+            language={highlightLanguage}
+            style={oneDark}
+            customStyle={{ margin: 0, padding: "0.75rem 1rem", background: "transparent", fontSize: "0.8125rem" }}
+            wrapLongLines
+          >
+            {code}
+          </SyntaxHighlighter>
+        ) : (
+          <pre className="whitespace-pre-wrap px-4 py-3 font-mono text-[0.8125rem] text-white/90">{code}</pre>
+        )}
       </div>
     </div>
   );
