@@ -20,8 +20,6 @@ export async function POST(request: Request) {
     ? `${SYSTEM_PROMPT}\n\nContext:\n${context}`
     : SYSTEM_PROMPT;
 
-    console.log("System content:", systemContent);
-
   const stream = await client.chat.completions.create({
     model: "gpt-5-nano",
     stream: true,
