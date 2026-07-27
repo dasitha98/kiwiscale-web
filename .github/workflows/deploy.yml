@@ -42,6 +42,9 @@ jobs:
             echo "Building application..."
             NODE_OPTIONS="--max-old-space-size=4096" npm run build
 
+            echo "Building chatbot application..."
+            npm run kb:build
+
             echo "Restarting PM2..."
             pm2 restart kiwiscale-web
 

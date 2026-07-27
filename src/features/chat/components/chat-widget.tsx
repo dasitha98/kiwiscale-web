@@ -1,12 +1,13 @@
 "use client";
 
 import { useState, useRef, useEffect, type FormEvent } from "react";
-import { MessageCircle, X, Send, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { MessageCircle, X, Send, Sparkles, Phone, Mail, CalendarCheck } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
+import { siteConfig } from "@/config/site-config";
 import { useChat } from "../use-chat";
 import ChatMessage from "./chat-message";
 
@@ -22,7 +23,7 @@ export default function ChatWidget() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight });
+    scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages]);
 
   useEffect(() => {
@@ -49,37 +50,29 @@ export default function ChatWidget() {
     void sendMessage(trimmed);
   };
 
+  const isThinking = isStreaming && messages[messages.length - 1]?.content === "";
+
   return (
     <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end">
       {isOpen && (
-        <Card className="mb-3 flex h-128 w-80 flex-col overflow-hidden rounded-2xl border-gold/20 py-0 shadow-2xl shadow-gold/10 sm:w-104 animate-in fade-in slide-in-from-bottom-4 zoom-in-95 duration-300">
-          <div className="relative flex items-center justify-between overflow-hidden bg-linear-to-br from-primary via-primary to-navy px-4 py-4">
-            <div
-              className="pointer-events-none absolute inset-0 opacity-20"
-              style={{
-                backgroundImage:
-                  "radial-gradient(circle at 20% 20%, hsl(var(--gold)) 0%, transparent 45%), radial-gradient(circle at 80% 0%, hsl(var(--gold)) 0%, transparent 35%)",
-              }}
-            />
-            <div className="relative flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gold shadow-lg shadow-gold/40">
-                <Sparkles className="size-4 text-gold-foreground" />
-              </div>
-              <div>
-                <p className="font-heading text-sm font-semibold text-primary-foreground">KiwiScale Assistant</p>
-                <p className="flex items-center gap-1.5 text-xs text-primary-foreground/70">
-                  <span className="relative flex size-1.5">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-75" />
-                    <span className="relative inline-flex size-1.5 rounded-full bg-gold" />
-                  </span>
-                  Online now
-                </p>
-              </div>
+        <Card className="animate-fade-in-up mb-3 flex h-112 w-80 flex-col overflow-hidden rounded-2xl border-none py-0 shadow-2xl ring-1 ring-black/5 sm:w-96">
+          <div className="navy-gradient flex items-center gap-3 px-4 py-4">
+            <div className="gold-icon-box h-10 w-10 shrink-0">
+              <Sparkles className="size-5 text-gold" />
+            </div>
+            <div className="min-w-0">
+              <p className="font-heading text-sm font-bold text-navy-foreground">
+                KiwiScale Assistant
+              </p>
+              <p className="flex items-center gap-1.5 text-xs text-navy-foreground/70">
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-gold" />
+                Online now
+              </p>
             </div>
             <Button
               variant="ghost"
               size="icon"
-              className="relative z-10 h-8 w-8 text-primary-foreground hover:bg-white/10 hover:text-primary-foreground"
+              className="ml-auto h-8 w-8 shrink-0 text-navy-foreground hover:bg-white/10 hover:text-navy-foreground"
               onClick={() => setIsOpen(false)}
               aria-label="Close chat"
             >
@@ -87,33 +80,15 @@ export default function ChatWidget() {
             </Button>
           </div>
 
-          <div ref={scrollRef} className="flex-1 overflow-y-auto bg-muted/30 px-4 py-3">
-            <div className={cn("flex flex-col gap-3", messages.length === 0 && "h-full")}>
+          <div
+            ref={scrollRef}
+            className="soft-gray-section flex-1 overflow-y-auto px-4 py-4"
+          >
+            <div className="flex flex-col gap-3">
               {messages.length === 0 && (
-                <div className="flex flex-1 flex-col items-center justify-center gap-4 px-4 py-10 text-center">
-                  <div className="flex size-14 items-center justify-center rounded-full bg-linear-to-br from-gold/20 to-gold/5 ring-1 ring-gold/20">
-                    <Sparkles className="size-6 text-gold" />
-                  </div>
-                  <div className="space-y-1">
-                    <p className="font-heading text-base font-semibold text-foreground">
-                      Hi, I&apos;m KiwiScale AI 👋
-                    </p>
-                    <p className="max-w-60 text-sm text-muted-foreground">
-                      Ask me anything about KiwiScale&apos;s services, pricing, or how we can help grow your business.
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap justify-center gap-1.5">
-                    {SUGGESTIONS.map((suggestion) => (
-                      <button
-                        key={suggestion}
-                        type="button"
-                        onClick={() => void sendMessage(suggestion)}
-                        className="rounded-full border border-gold/25 bg-gold/5 px-3 py-1.5 text-xs font-medium text-gold transition-colors hover:bg-gold/10"
-                      >
-                        {suggestion}
-                      </button>
-                    ))}
-                  </div>
+                <div className="card-elevated px-3 py-3 text-sm text-muted-foreground">
+                  Hi! I&apos;m the KiwiScale assistant — ask me about our services, pricing,
+                  or how the 14-day launch plan works.
                 </div>
               )}
               {messages.map((message, index) => (
@@ -126,24 +101,65 @@ export default function ChatWidget() {
                   onRegenerate={index === messages.length - 1 ? regenerate : undefined}
                 />
               ))}
+              {isThinking && (
+                <div className="flex justify-start">
+                  <div className="flex items-center gap-1 rounded-2xl rounded-bl-sm bg-white px-4 py-3 shadow-sm">
+                    <span className="size-1.5 animate-bounce rounded-full bg-muted-foreground [animation-delay:-0.3s]" />
+                    <span className="size-1.5 animate-bounce rounded-full bg-muted-foreground [animation-delay:-0.15s]" />
+                    <span className="size-1.5 animate-bounce rounded-full bg-muted-foreground" />
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="flex items-center gap-2 border-t bg-card p-3">
+          <div className="flex items-center justify-between gap-2 border-t border-border bg-background px-4 py-2.5 text-xs">
+            <div className="flex flex-col gap-1 text-muted-foreground">
+              <a
+                href={`tel:${siteConfig.phone.replace(/\s+/g, "")}`}
+                className="flex items-center gap-1.5 hover:text-gold"
+              >
+                <Phone className="size-3" />
+                {siteConfig.phone}
+              </a>
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="flex items-center gap-1.5 hover:text-gold"
+              >
+                <Mail className="size-3" />
+                {siteConfig.email}
+              </a>
+            </div>
+            <Button
+              asChild
+              size="sm"
+              className="h-8 shrink-0 gap-1.5 rounded-full bg-gold px-3 text-xs text-gold-foreground shadow-md hover:bg-gold/90"
+            >
+              <Link href="/contact">
+                <CalendarCheck className="size-3.5" />
+                Book a Call
+              </Link>
+            </Button>
+          </div>
+
+          <form
+            onSubmit={handleSubmit}
+            className="flex items-center gap-2 border-t border-border bg-background p-3"
+          >
             <Input
               value={input}
               onChange={(event) => setInput(event.target.value)}
               placeholder="Type a message…"
               disabled={isStreaming}
               aria-label="Chat message"
-              className="focus-visible:ring-gold"
+              className="rounded-full border-border bg-muted focus-visible:ring-gold"
             />
             <Button
               type="submit"
               size="icon"
               disabled={isStreaming || !input.trim()}
               aria-label="Send message"
-              className="shrink-0 bg-gold text-gold-foreground shadow-md shadow-gold/30 hover:bg-gold/90 disabled:bg-gold/40 disabled:text-gold-foreground/60"
+              className="h-9 w-9 shrink-0 rounded-full bg-gold text-gold-foreground shadow-md hover:scale-105 hover:bg-gold/90 disabled:opacity-40 disabled:hover:scale-100"
             >
               <Send className="size-4" />
             </Button>
@@ -151,36 +167,22 @@ export default function ChatWidget() {
         </Card>
       )}
 
-      {!isOpen && showHint && (
-        <div className="mb-3 flex max-w-60 animate-in fade-in slide-in-from-bottom-2 items-start gap-2 rounded-2xl rounded-br-sm border border-gold/20 bg-card px-3.5 py-2.5 text-sm shadow-lg shadow-gold/10 duration-300">
-          <p className="text-foreground">
-            👋 Need help? <span className="font-medium">Chat with us!</span>
-          </p>
-          <button
-            type="button"
-            onClick={dismissHint}
-            aria-label="Dismiss"
-            className="-mr-1 -mt-1 shrink-0 rounded-full p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-          >
-            <X className="size-3.5" />
-          </button>
-        </div>
-      )}
-
-      <Button
-        size="icon"
-        onClick={handleOpen}
-        aria-label={isOpen ? "Close chat" : "Open chat"}
-        className={cn(
-          "relative h-14 w-14 rounded-full bg-gold text-gold-foreground shadow-lg shadow-gold/40 transition-transform hover:scale-105 hover:bg-gold/90",
-          !isOpen && "animate-pulse",
-        )}
-      >
+      <div className="relative h-14 w-14">
         {!isOpen && (
-          <span className="absolute inset-0 -z-10 animate-ping rounded-full bg-gold opacity-40" />
+          <>
+            <span className="absolute inset-0 animate-ping rounded-full bg-gold/60 [animation-duration:2s]" />
+            <span className="absolute inset-0 animate-ping rounded-full bg-gold/40 [animation-delay:0.6s] [animation-duration:2s]" />
+          </>
         )}
-        {isOpen ? <X className="size-5" /> : <MessageCircle className="size-6" />}
-      </Button>
+        <Button
+          size="icon"
+          className="relative h-14 w-14 rounded-full bg-gold text-gold-foreground shadow-[0_8px_24px_-4px_hsl(var(--gold)/0.5)] transition-transform hover:scale-105 hover:bg-gold/90"
+          onClick={() => setIsOpen((open) => !open)}
+          aria-label={isOpen ? "Close chat" : "Open chat"}
+        >
+          {isOpen ? <X className="size-6" /> : <MessageCircle className="size-6" />}
+        </Button>
+      </div>
     </div>
   );
 }
