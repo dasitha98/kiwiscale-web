@@ -6,7 +6,7 @@ export default function TypingIndicator() {
         <span className="size-1.5 animate-bounce rounded-full bg-current [animation-delay:-0.15s]" />
         <span className="size-1.5 animate-bounce rounded-full bg-current" />
       </span>
-      KiwiScale AI is thinking…
+      KiwiScale AI is typing...
     </div>
   );
 }

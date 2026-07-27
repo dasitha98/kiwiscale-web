@@ -2,7 +2,15 @@
 
 import { useState, useRef, useEffect, type FormEvent } from "react";
 import Link from "next/link";
-import { MessageCircle, X, Send, Sparkles, Phone, Mail, CalendarCheck } from "lucide-react";
+import {
+  MessageCircle,
+  X,
+  Send,
+  Sparkles,
+  Phone,
+  Mail,
+  CalendarCheck,
+} from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,7 +31,10 @@ export default function ChatWidget() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
+    scrollRef.current?.scrollTo({
+      top: scrollRef.current.scrollHeight,
+      behavior: "smooth",
+    });
   }, [messages]);
 
   useEffect(() => {
@@ -50,7 +61,8 @@ export default function ChatWidget() {
     void sendMessage(trimmed);
   };
 
-  const isThinking = isStreaming && messages[messages.length - 1]?.content === "";
+  const isThinking =
+    isStreaming && messages[messages.length - 1]?.content === "";
 
   return (
     <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end">
@@ -87,8 +99,8 @@ export default function ChatWidget() {
             <div className="flex flex-col gap-3">
               {messages.length === 0 && (
                 <div className="card-elevated px-3 py-3 text-sm text-muted-foreground">
-                  Hi! I&apos;m the KiwiScale assistant — ask me about our services, pricing,
-                  or how the 14-day launch plan works.
+                  Hi! I&apos;m the KiwiScale assistant — ask me about our
+                  services, pricing, or how the 14-day launch plan works.
                 </div>
               )}
               {messages.map((message, index) => (
@@ -98,18 +110,11 @@ export default function ChatWidget() {
                   content={message.content}
                   timestamp={message.timestamp}
                   isStreaming={isStreaming && index === messages.length - 1}
-                  onRegenerate={index === messages.length - 1 ? regenerate : undefined}
+                  onRegenerate={
+                    index === messages.length - 1 ? regenerate : undefined
+                  }
                 />
               ))}
-              {isThinking && (
-                <div className="flex justify-start">
-                  <div className="flex items-center gap-1 rounded-2xl rounded-bl-sm bg-white px-4 py-3 shadow-sm">
-                    <span className="size-1.5 animate-bounce rounded-full bg-muted-foreground [animation-delay:-0.3s]" />
-                    <span className="size-1.5 animate-bounce rounded-full bg-muted-foreground [animation-delay:-0.15s]" />
-                    <span className="size-1.5 animate-bounce rounded-full bg-muted-foreground" />
-                  </div>
-                </div>
-              )}
             </div>
           </div>
 
@@ -180,7 +185,11 @@ export default function ChatWidget() {
           onClick={() => setIsOpen((open) => !open)}
           aria-label={isOpen ? "Close chat" : "Open chat"}
         >
-          {isOpen ? <X className="size-6" /> : <MessageCircle className="size-6" />}
+          {isOpen ? (
+            <X className="size-6" />
+          ) : (
+            <MessageCircle className="size-6" />
+          )}
         </Button>
       </div>
     </div>
