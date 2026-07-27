@@ -65,7 +65,7 @@ export default function ChatWidget() {
     isStreaming && messages[messages.length - 1]?.content === "";
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end">
+    <div className="fixed bottom-8 right-8 z-50 flex flex-col items-end">
       {isOpen && (
         <Card className="animate-fade-in-up mb-3 flex h-112 w-80 flex-col overflow-hidden rounded-2xl border-none py-0 shadow-2xl ring-1 ring-black/5 sm:w-96">
           <div className="navy-gradient flex items-center gap-3 px-4 py-4">
