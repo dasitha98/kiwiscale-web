@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($git = \"C:\\\\Users\\\\dasit\\\\AppData\\\\Local\\\\GitHubDesktop\\\\app-3.6.3\\\\resources\\\\app\\\\git\\\\cmd\\\\git.exe\"; & $git log --oneline -- src/features/chat/components/chat-widget.tsx; \"---status---\"; & $git status; \"---diff between commits---\"; & $git show 59b14d7:src/features/chat/components/chat-widget.tsx | Select-Object -First 5)"
+    ]
+  }
+}
