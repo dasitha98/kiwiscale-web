@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 
 const PROFILE = {
   name: "Dasitha Tharinda",
-  title: "Senior Software Engineer",
+  title: "Open to Junior Software Engineer, Software Engineer &amp; Senior Software Engineer roles",
   location: "New Zealand — open to relocation",
   email: "dasitha98@gmail.com",
   phone: "022 417 8796",
@@ -319,10 +319,10 @@ export default function PortfolioPage() {
             <p className="mt-5 text-lg md:text-xl font-medium text-white/85">
               {PROFILE.title}
             </p>
-            <p className="mt-1 text-sm text-white/55">
+            {/* <p className="mt-1 text-sm text-white/55">
               Open to Junior Software Engineer, Software Engineer &amp; Senior
               Software Engineer roles
-            </p>
+            </p> */}
             <div className="mt-2 flex items-center gap-2 text-white/65 text-sm">
               <MapPin className="h-4 w-4" /> {PROFILE.location}
             </div>
