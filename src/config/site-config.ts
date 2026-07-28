@@ -120,7 +120,7 @@ export const siteConfig = {
     {
       title: "Conversion Focus",
       description:
-        "Everything we build is designed to convert visitors into clients.",
+        "Everything I build is designed to convert visitors into clients.",
     },
     {
       title: "Scalable Systems",
