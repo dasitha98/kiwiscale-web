@@ -12,17 +12,17 @@ export default function Privacy() {
         <h1 className="text-3xl font-extrabold">Privacy Policy</h1>
         <p className="text-muted-foreground">Last updated: February 2026</p>
 
-        <h2 className="mt-8 text-xl font-bold">1. Information We Collect</h2>
-        <p className="text-muted-foreground">We collect information you provide directly, such as your name, email, company, and message when you fill out our contact form.</p>
+        <h2 className="mt-8 text-xl font-bold">1. Information I Collect</h2>
+        <p className="text-muted-foreground">I collect information you provide directly, such as your name, email, company, and message when you fill out our contact form.</p>
 
-        <h2 className="mt-6 text-xl font-bold">2. How We Use Your Information</h2>
-        <p className="text-muted-foreground">We use the information to respond to your inquiries, provide our services, and improve your experience on our website.</p>
+        <h2 className="mt-6 text-xl font-bold">2. How I Use Your Information</h2>
+        <p className="text-muted-foreground">I use the information to respond to your inquiries, provide our services, and improve your experience on our website.</p>
 
         <h2 className="mt-6 text-xl font-bold">3. Data Storage</h2>
         <p className="text-muted-foreground">Your data is stored securely and is not shared with third parties except as required to provide our services.</p>
 
         <h2 className="mt-6 text-xl font-bold">4. Cookies</h2>
-        <p className="text-muted-foreground">We use essential cookies and analytics tools such as Google Analytics 4 to understand how visitors use our site.</p>
+        <p className="text-muted-foreground">I use essential cookies and analytics tools such as Google Analytics 4 to understand how visitors use our site.</p>
 
         <h2 className="mt-6 text-xl font-bold">5. Your Rights</h2>
         <p className="text-muted-foreground">You have the right to request access to, correction of, or deletion of your personal information at any time.</p>
