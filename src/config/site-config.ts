@@ -115,7 +115,7 @@ export const siteConfig = {
     },
     {
       title: "Marketing + Tech Alignment",
-      description: "We bridge the gap between your marketing and technology.",
+      description: "I bridge the gap between your marketing and technology.",
     },
     {
       title: "Conversion Focus",
@@ -302,11 +302,11 @@ export const siteConfig = {
     },
     {
       q: "How does pricing work?",
-      a: "We offer project-based pricing with clear deliverables. No hidden fees. We'll provide a detailed quote after our strategy call.",
+      a: "I offer project-based pricing with clear deliverables. No hidden fees. I'll provide a detailed quote after our strategy call.",
     },
     {
       q: "What industries do you work with?",
-      a: "We specialise in professional services, trades, e-commerce, and SaaS — but our systems work across industries.",
+      a: "I specialise in professional services, trades, e-commerce, and SaaS — but our systems work across industries.",
     },
     {
       q: "What do you actually provide?",
@@ -326,7 +326,7 @@ export const siteConfig = {
     },
     {
       q: "Do you guarantee results?",
-      a: "We don't make empty guarantees. We commit to transparent reporting, continuous optimisation, and measurable progress towards your goals.",
+      a: "I don't make empty guarantees. I commit to transparent reporting, continuous optimisation, and measurable progress towards your goals.",
     },
     {
       q: "Can I see my ad and analytics accounts?",
@@ -334,7 +334,7 @@ export const siteConfig = {
     },
     {
       q: "What if I already have a website?",
-      a: "We'll audit your existing site and recommend improvements or a rebuild based on what will drive the best results.",
+      a: "I'll audit your existing site and recommend improvements or a rebuild based on what will drive the best results.",
     },
   ],
 } as const;

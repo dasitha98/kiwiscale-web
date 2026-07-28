@@ -9,7 +9,8 @@ const SolutionSection = () => (
       <div className="text-center">
         <span className="section-badge">Our System</span>
         <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
-          We Build Intelligent Systems That Deliver<br className="hidden sm:block" /> Predictable Client Growth.
+          I Build Intelligent Systems That Deliver
+          <br className="hidden sm:block" /> Predictable Client Growth.
         </h2>
       </div>
 
@@ -21,9 +22,13 @@ const SolutionSection = () => (
               <div className="gold-icon-box mx-auto">
                 <Icon className="h-6 w-6 text-gold" />
               </div>
-              <span className="mt-5 block text-3xl font-extrabold text-gold">{String(i + 1).padStart(2, "0")}</span>
+              <span className="mt-5 block text-3xl font-extrabold text-gold">
+                {String(i + 1).padStart(2, "0")}
+              </span>
               <h3 className="mt-2 text-lg font-bold">{pillar.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{pillar.description}</p>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                {pillar.description}
+              </p>
             </div>
           );
         })}

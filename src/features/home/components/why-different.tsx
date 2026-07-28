@@ -6,9 +6,12 @@ const WhyDifferentSection = () => (
     <div className="container-narrow mx-auto">
       <div className="text-center">
         <span className="section-badge">Our Edge</span>
-        <h2 className="mt-4 text-3xl font-bold sm:text-4xl">Why We&apos;re Different</h2>
+        <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
+          Why I&apos;re Different
+        </h2>
         <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-          We don&apos;t do cookie-cutter. Every engagement is built around your goals.
+          I don&apos;t do cookie-cutter. Every engagement is built around your
+          goals.
         </p>
       </div>
 
@@ -19,7 +22,9 @@ const WhyDifferentSection = () => (
               <Check className="h-5 w-5" strokeWidth={3} />
             </div>
             <h3 className="mt-5 text-base font-bold">{item.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              {item.description}
+            </p>
           </div>
         ))}
       </div>

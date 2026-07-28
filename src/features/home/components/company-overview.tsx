@@ -8,16 +8,22 @@ const CompanyOverviewSection = () => (
       <div className="grid items-center gap-12 lg:grid-cols-2">
         <div className="text-center lg:text-left">
           <span className="section-badge">Company Overview</span>
-          <h2 className="mt-4 text-3xl font-bold sm:text-4xl">Meet the Founder</h2>
+          <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
+            Meet the Founder
+          </h2>
           <p className="mx-auto mt-4 max-w-lg text-muted-foreground lg:mx-0">
-            We help New Zealand businesses build client growth systems that actually work — combining
-            strategy, execution, and smart automation so you get consistent, qualified inquiries
-            without the guesswork. Ready to see how it works?
+            I help New Zealand businesses build client growth systems that
+            actually work — combining strategy, execution, and smart automation
+            so you get consistent, qualified inquiries without the guesswork.
+            Ready to see how it works?
           </p>
 
           <ul className="mt-8 space-y-4">
             {siteConfig.companyOverview.founderBullets.map((bullet, i) => (
-              <li key={i} className="flex items-start gap-3 text-sm text-foreground lg:justify-start justify-center">
+              <li
+                key={i}
+                className="flex items-start gap-3 text-sm text-foreground lg:justify-start justify-center"
+              >
                 <CheckCircle className="mt-0.5 h-5 w-5 shrink-0 text-gold" />
                 <span>{bullet}</span>
               </li>

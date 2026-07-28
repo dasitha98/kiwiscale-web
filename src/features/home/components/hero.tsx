@@ -51,12 +51,15 @@ const HeroSection = () => {
               </div>
 
               <h1 className="mx-auto mt-6 max-w-xl text-4xl font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:mx-0 lg:max-w-none lg:text-[3.25rem] [word-spacing:0.1em]">
-                Your Next Client Is <span className="text-gold">Already Searching</span> for You Online
+                Your Next Client Is{" "}
+                <span className="text-gold">Already Searching</span> for You
+                Online
               </h1>
 
               <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground lg:mx-0">
-                We make sure they find you — with a strategy-first growth system that combines SEO, paid ads, conversion
-                design, and smart automation.
+                I make sure they find you — with a strategy-first growth system
+                that combines SEO, paid ads, conversion design, and smart
+                automation.
               </p>
 
               <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:justify-start">
@@ -99,10 +102,16 @@ const HeroSection = () => {
                   key={card.num}
                   className="group flex items-start gap-5 rounded-2xl border border-border bg-background p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:border-gold/30"
                 >
-                  <span className="shrink-0 text-2xl font-extrabold text-gold">{card.num}</span>
+                  <span className="shrink-0 text-2xl font-extrabold text-gold">
+                    {card.num}
+                  </span>
                   <div>
-                    <h3 className="text-base font-bold text-foreground">{card.title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{card.desc}</p>
+                    <h3 className="text-base font-bold text-foreground">
+                      {card.title}
+                    </h3>
+                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                      {card.desc}
+                    </p>
                   </div>
                 </div>
               ))}

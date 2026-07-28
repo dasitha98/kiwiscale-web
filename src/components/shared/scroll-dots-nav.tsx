@@ -5,7 +5,7 @@ import { useEffect, useState, useCallback, useRef } from "react";
 const sections = [
   { id: "hero", label: "Hero" },
   { id: "partners", label: "Partners" },
-  { id: "offer", label: "What We Offer" },
+  { id: "offer", label: "What I Offer" },
   { id: "problems", label: "Problems" },
   { id: "pitfalls", label: "Pitfalls" },
   { id: "solution", label: "Solution" },
@@ -50,11 +50,14 @@ const ScrollDotsNav = () => {
           let maxRatio = 0;
           let maxId = sections[0].id;
           ratios.forEach((r, sId) => {
-            if (r > maxRatio) { maxRatio = r; maxId = sId; }
+            if (r > maxRatio) {
+              maxRatio = r;
+              maxId = sId;
+            }
           });
           setActiveId(maxId);
         },
-        { threshold: [0, 0.1, 0.2, 0.3, 0.5, 0.7, 1] }
+        { threshold: [0, 0.1, 0.2, 0.3, 0.5, 0.7, 1] },
       );
       observer.observe(el);
       observers.push(observer);
@@ -71,7 +74,10 @@ const ScrollDotsNav = () => {
     <nav
       aria-label="Section navigation"
       className="fixed left-6 top-1/2 z-50 hidden -translate-y-1/2 md:flex flex-col items-center gap-[10px] transition-opacity duration-500"
-      style={{ opacity: visible ? 1 : 0, pointerEvents: visible ? "auto" : "none" }}
+      style={{
+        opacity: visible ? 1 : 0,
+        pointerEvents: visible ? "auto" : "none",
+      }}
     >
       {sections.map(({ id, label }) => (
         <button
