@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 
 const PROFILE = {
   name: "Dasitha Tharinda",
-  title: "Open to Junior Software Engineer, Software Engineer &amp; Senior Software Engineer roles",
+  title: "Open to Junior Software Engineer, Software Engineer & Senior Software Engineer roles",
   location: "New Zealand — open to relocation",
   email: "dasitha98@gmail.com",
   phone: "022 417 8796",
