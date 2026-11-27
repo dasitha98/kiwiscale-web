@@ -28,7 +28,7 @@ import {
 export const metadata: Metadata = {
   title: "Dasitha Tharinda — Full-Stack Software Engineer | Portfolio",
   description:
-    " Tharinda — full-stack software engineer based in New Zealand with an Open Work Visa. 5+ years building scalable fintech, crypto and business-management platforms, including CoinBureau and Simplebooks.",
+    "Dasitha Tharinda — full-stack software engineer based in New Zealand with an Open Work Visa. 5+ years building scalable fintech, crypto and business-management platforms, including CoinBureau and Simplebooks.",
 };
 
 /* ------------------------------------------------------------------ */
@@ -393,8 +393,7 @@ export default function PortfolioPage() {
               {PROFILE.stackLine}
             </p>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-slate-700 dark:text-slate-300">
-              I build secure, scalable web and mobile products end to end, from
-              database design to cloud deployment.
+              
             </p>
             <p className="mt-3 inline-flex items-center gap-2 rounded-lg border-l-4 border-teal-600 bg-teal-50/70 px-3 py-2 text-base font-medium text-teal-900 dark:border-teal-400 dark:bg-teal-950/50 dark:text-teal-200">
               <Briefcase className="h-4 w-4 shrink-0" />
