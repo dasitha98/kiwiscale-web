@@ -28,7 +28,7 @@ import {
 export const metadata: Metadata = {
   title: "Dasitha Tharinda — Full-Stack Software Engineer | Portfolio",
   description:
-    "Dasitha Tharinda — full-stack software engineer based in New Zealand with an Open Work Visa. 5+ years building scalable fintech, crypto and business-management platforms, including CoinBureau and Simplebooks.",
+    " Tharinda — full-stack software engineer based in New Zealand with an Open Work Visa. 5+ years building scalable fintech, crypto and business-management platforms, including CoinBureau and Simplebooks.",
 };
 
 /* ------------------------------------------------------------------ */
